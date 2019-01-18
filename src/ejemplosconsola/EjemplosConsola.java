@@ -49,6 +49,35 @@ public class EjemplosConsola {
     }
     
     
+    private boolean palindromo (String cadena){
+        //primera fase: creo un nuevo string que sea una copia del anterior
+        //que me pasan pero quitándole los espacios en blanco
+        String auxiliar = "";
+        for (int i=0; i< cadena.length(); i++){
+            if(cadena.charAt(i) != ' '){
+                auxiliar = auxiliar + cadena.charAt(i);
+            }
+        }
+        //ahora en auxiliar tengo el string pero sin espacios en blanco
+        //declaro dos indices para que digan qué posiciones estoy comparando
+        int indiceIzq = 0;
+        int indiceDer = auxiliar.length()-1;
+        //mientras sean iguales los caracterres en esas psiciones la palabra será un palindromo 
+        //y en el momento en el que una de esas comparaciones falle, esque no es palíndromo
+        
+        //además, si el indice ezquierdo es mayor que el derecho, ya he chequeado toda la frase
+        while(auxiliar.charAt(indiceIzq) == auxiliar.charAt(indiceDer) && indiceIzq <= indiceDer){
+            indiceIzq++;
+            indiceDer--;
+        }
+        boolean esPalindromo = true;
+        if(indiceIzq < indiceDer){ //si esto se cumple la palabra no es un palindromo
+            esPalindromo = false;
+        }
+        
+        return esPalindromo;//TODO: hay que cambiar esto luego para que funcion bien
+    }
+    
    
     /**
      * @param args the command line arguments
@@ -61,6 +90,9 @@ public class EjemplosConsola {
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros2)) );
          
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros3)) );
+        
+        System.out.println(ejercicios.palindromo("ACASO HUBO BUHOS ACA") );
+        System.out.println(ejercicios.palindromo("T A CO CAT") );
     }
     
 }
