@@ -78,14 +78,65 @@ public class EjemplosConsola {
         return esPalindromo;//TODO: hay que cambiar esto luego para que funcion bien
     }
     
-   
+  /* private boolean isograma(String palabra){
+       String auxiliar ="";
+       boolean esIsograma = true;
+      
+      
+       for(int i=0; i<palabra.length(); i++){
+           auxiliar = auxiliar + palabra.charAt(i);
+       }
+       for(int i=0; i<auxiliar.length(); i++){
+            int posicion = 0;
+            char letraAComparar2 = auxiliar.charAt(i);
+           while(auxiliar.charAt(posicion) != letraAComparar2){
+               posicion ++;
+           }
+       }
+       
+   }
+    */
+    private void imprimeMes (int num){
+        for(int i=1; i<=31; i++){
+            System.out.print(" "+i);
+        }
+      
+    }
+    
+    private boolean esAnagrama (String A, String B){
+        A = A.toUpperCase();
+        B = B.toUpperCase();
+        boolean anagrama = false;
+            if(A.length() == B.length()){
+                for(int i=0; i<A.length(); i++){
+                    int posicionB = 0;
+                    while(posicionB < B.length() && A.charAt(i) != B.charAt(posicionB) ){
+                        posicionB ++ ;
+                       
+                    }
+                    if(posicionB == B.length()){
+                        return false;
+                    }
+                    else{
+                         B = B.substring(0, posicionB) + B.substring(posicionB + 1);
+                    }
+            }  
+            if(B.length() == 0){
+               anagrama = true;
+            }
+        }
+        return anagrama;
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       
         EjemplosConsola ejercicios = new EjemplosConsola();
-        
-        System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros)) );
+         System.out.println("roma amor " + ejercicios.esAnagrama("roma","amor"));
+          System.out.println("jamon monja " + ejercicios.esAnagrama("jamon","monja"));
+                 System.out.println("jamon pepee " + ejercicios.esAnagrama("jamon","pepee"));
+       /* System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros)) );
         
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros2)) );
          
@@ -93,6 +144,11 @@ public class EjemplosConsola {
         
         System.out.println(ejercicios.palindromo("ACASO HUBO BUHOS ACA") );
         System.out.println(ejercicios.palindromo("T A CO CAT") );
+        System.out.println(ejercicios.palindromo("ÑLASDJFGDJSAGEJKDJKDJS") );
+        //System.out.println(ejercicios.isograma("murcielago") );
+        ejercicios.imprimeMes(3);
+        System.out
+        */
     }
     
 }
